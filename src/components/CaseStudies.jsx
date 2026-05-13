@@ -1,11 +1,9 @@
 import ScrollReveal, { StaggerChildren, StaggerItem } from './ScrollReveal';
 import {
   GrowthCurve, FunnelChart, BIDashboard, ABTest,
-  UserPersona, OKRCard, StatCard, BarChartViz,
-  Timeline, CostCompare
+  StatCard, BarChartViz, Timeline, CostCompare
 } from './Charts';
 
-/* ── Helper: section wrapper ── */
 function Section({ id, label, accent, title, subtitle, children }) {
   return (
     <section id={id} className="py-24 md:py-32 relative">
@@ -13,9 +11,7 @@ function Section({ id, label, accent, title, subtitle, children }) {
         <ScrollReveal>
           <div className="flex items-center gap-3 mb-3">
             <div className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold"
-              style={{ background: `${accent}15`, color: accent }}>
-              {label}
-            </div>
+              style={{ background: `${accent}15`, color: accent }}>{label}</div>
             <span className="text-xs text-[#888894] font-mono tracking-wider uppercase">Case Study</span>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-3">{title}</h2>
@@ -27,77 +23,59 @@ function Section({ id, label, accent, title, subtitle, children }) {
   );
 }
 
-/* ── Case 1: 校园活动增长项目 ── */
-function CampusGrowth() {
-  const growthData = [
-    { name: 'W1', value: 120 }, { name: 'W2', value: 280 }, { name: 'W3', value: 450 },
-    { name: 'W4', value: 820 }, { name: 'W5', value: 1300 }, { name: 'W6', value: 2100 },
-    { name: 'W7', value: 3500 }, { name: 'W8', value: 5200 },
+/* ── Case 1: 玛氏促销活动运营 ── */
+function MarsSales() {
+  const execData = [
+    { name: '活动前', value: 72 }, { name: 'Month 1', value: 78 },
+    { name: 'Month 2', value: 83 }, { name: 'Month 3', value: 87 },
   ];
 
   const funnelData = [
-    { name: '活动曝光', value: 52000, rate: '100%' },
-    { name: '点击参与', value: 18400, rate: '35.4%' },
-    { name: '完成报名', value: 8200, rate: '44.6%' },
-    { name: '现场签到', value: 5100, rate: '62.2%' },
-    { name: '社群沉淀', value: 2300, rate: '45.1%' },
+    { name: '物料配送', value: 30, rate: '100%' },
+    { name: '门店签收', value: 28, rate: '93%' },
+    { name: '陈列执行', value: 26, rate: '87%' },
+    { name: '促销员到位', value: 26, rate: '87%' },
+    { name: '销售达成', value: 33, rate: '110%' },
   ];
 
-  const okrs = [
-    {
-      objective: '打造校园现象级活动 IP，单场触达 5000+',
-      status: 'exceeded',
-      keyResults: [
-        { label: '活动曝光量 ≥ 50000', progress: 104 },
-        { label: '到场率 ≥ 40%', progress: 112 },
-        { label: '社群转化率 ≥ 20%', progress: 95 },
-      ],
-    },
-    {
-      objective: '建立可复用的活动运营 SOP',
-      status: 'completed',
-      keyResults: [
-        { label: '输出标准化执行手册', progress: 100 },
-        { label: '跨部门协作响应 < 2h', progress: 100 },
-      ],
-    },
+  const metrics = [
+    { label: '门店执行率', value: '87%', trend: 15, progress: 87 },
+    { label: '销售达成率', value: '110%', trend: 10, progress: 100 },
+    { label: '数据报表时效', value: '2天', trend: 60, progress: 80 },
+    { label: '物料到位率', value: '92%', trend: 24, progress: 92 },
   ];
 
   const timeline = [
-    { date: 'Week 1-2', title: '用户调研 + 竞品分析', desc: '发放问卷 500 份，输出用户画像报告', dotColor: 'bg-[#3b82f6]', dotBg: 'bg-[#3b82f6]/20' },
-    { date: 'Week 3', title: '种子用户冷启动', desc: '招募 50 位校园 KOC，人均邀请 12 人', metric: '↑ 首周 600+ 种子用户', dotColor: 'bg-[#8b5cf6]', dotBg: 'bg-[#8b5cf6]/20' },
-    { date: 'Week 4-5', title: '裂变增长期', desc: '阶梯奖励 + 限时任务体系上线', metric: '↑ 裂变系数 K=2.4', dotColor: 'bg-[#3b82f6]', dotBg: 'bg-[#3b82f6]/20' },
-    { date: 'Week 6', title: '活动爆发期', desc: '线下活动日，实时数据大屏 + 社群直播', metric: '↑ 单日新增 1800+', dotColor: 'bg-[#ec4899]', dotBg: 'bg-[#ec4899]/20' },
-    { date: 'Week 7-8', title: '长尾运营', desc: '社群每日话题 + UGC 激励', metric: '✓ 社群活跃度 68%', dotColor: 'bg-[#10b981]', dotBg: 'bg-[#10b981]/20' },
+    { date: 'Week 1-2', title: '数据盘点 + 门店分级', desc: '用数据透视表对 30+ 门店做销售额 × 增长率四象限分级', dotColor: 'bg-[#3b82f6]', dotBg: 'bg-[#3b82f6]/20' },
+    { date: 'Week 3-4', title: '活动落地执行', desc: '物料配送跟进、促销员培训、陈列标准落地', metric: '↑ 物料到位率 68% → 92%', dotColor: 'bg-[#8b5cf6]', dotBg: 'bg-[#8b5cf6]/20' },
+    { date: 'Week 5-6', title: '日报 + 异常预警', desc: '建立每日数据追踪表，发现 3 处物料滞留仓库', metric: '↑ 数据时效 5天 → 2天', dotColor: 'bg-[#ec4899]', dotBg: 'bg-[#ec4899]/20' },
+    { date: 'Week 7-8', title: '效果复盘', desc: '输出活动数据报告，交叉分析执行质量 vs 销售达成', metric: '✓ 销售目标达成 110%', dotColor: 'bg-[#10b981]', dotBg: 'bg-[#10b981]/20' },
   ];
 
   return (
     <Section id="case-1" label="01" accent="#3b82f6"
-      title="校园活动增长项目"
-      subtitle="从 0 到 1 搭建校园增长引擎，8 周触达 5 万+，沉淀可复用 SOP">
-
+      title="玛氏促销活动运营"
+      subtitle="上海玛氏食品 · 销售运营实习生 · 2025.07-2025.10">
       <div className="grid lg:grid-cols-2 gap-6 mb-6">
         <StaggerChildren>
-          <StaggerItem><GrowthCurve data={growthData} title="用户增长曲线" subtitle="周活跃用户 · 8周增长 43x" accent="#3b82f6" /></StaggerItem>
+          <StaggerItem><GrowthCurve data={execData} title="门店活动执行率提升" subtitle="月度追踪 · 72% → 87%" accent="#3b82f6" /></StaggerItem>
         </StaggerChildren>
         <StaggerChildren>
-          <StaggerItem><FunnelChart data={funnelData} title="活动转化漏斗" subtitle="曝光 → 沉淀 全链路追踪" /></StaggerItem>
+          <StaggerItem><FunnelChart data={funnelData} title="活动执行漏斗" subtitle="配送 → 签收 → 陈列 → 销售 · 30 家门店" /></StaggerItem>
         </StaggerChildren>
       </div>
-
       <div className="grid lg:grid-cols-2 gap-6 mb-6">
-        <ScrollReveal><OKRCard okrs={okrs} title="OKR 追踪" /></ScrollReveal>
-        <ScrollReveal><Timeline events={timeline} title="项目时间线" /></ScrollReveal>
+        <ScrollReveal><BIDashboard metrics={metrics} title="核心指标看板" /></ScrollReveal>
+        <ScrollReveal><Timeline events={timeline} title="项目执行时间线" /></ScrollReveal>
       </div>
-
       <ScrollReveal>
         <div className="bg-[#141416] rounded-2xl border border-[#2a2a2e] p-6">
-          <h4 className="text-sm font-semibold text-[#f5f5f7] mb-4">核心策略</h4>
+          <h4 className="text-sm font-semibold text-[#f5f5f7] mb-4">关键动作与数据归因</h4>
           <div className="grid md:grid-cols-3 gap-4">
             {[
-              { title: '种子用户策略', desc: '筛选 50 位校园 KOC，利用社交关系链冷启动。人均邀请 12 人，首周积累 600+ 种子用户。', icon: '🌱' },
-              { title: '阶梯奖励机制', desc: '设计 3 级奖励梯度，裂变系数 K=2.4。人均分享 3.7 次，获客成本降低 60%。', icon: '🎯' },
-              { title: '实时数据驱动', desc: '搭建活动数据看板，实时监控各渠道转化率。根据数据动态调整资源分配，ROI 提升 2.8x。', icon: '📊' },
+              { title: '门店四象限分级', desc: '用数据透视表按销售额+增长率交叉分析 30+ 门店，S级门店资源倾斜，C级评估替代。', icon: '📊' },
+              { title: '物料追踪表', desc: '建 Excel 追踪表覆盖配送→签收→上架全流程，发现 3 处物料滞留仓库，到位率从 68% 提升至 92%。', icon: '📦' },
+              { title: '执行 × 销售归因', desc: 'VLOOKUP 关联执行数据与销售数据，发现执行合格门店达成率 108%，不合格仅 76%。结论：执行一致性是增长杠杆。', icon: '🎯' },
             ].map((s, i) => (
               <div key={i} className="bg-[#0a0a0b] rounded-xl p-5 border border-[#2a2a2e]">
                 <span className="text-2xl mb-3 block">{s.icon}</span>
@@ -112,68 +90,76 @@ function CampusGrowth() {
   );
 }
 
-/* ── Case 2: 短视频账号运营 ── */
-function VideoOps() {
-  const growth = [
-    { name: '1月', value: 1200 }, { name: '2月', value: 3400 }, { name: '3月', value: 8900 },
-    { name: '4月', value: 21000 }, { name: '5月', value: 45000 }, { name: '6月', value: 82000 },
+/* ── Case 2: 波妞电商大促运营 ── */
+function BoniuEcommerce() {
+  const salesData = [
+    { name: 'Week 1', value: 12000 }, { name: 'Week 2', value: 18500 },
+    { name: 'Week 3', value: 24800 }, { name: 'Week 4', value: 32000 },
+    { name: '大促周', value: 41000 },
   ];
 
-  const content = [
-    { name: '教程类', value: 42 },
-    { name: 'Vlog', value: 28 },
-    { name: '测评', value: 18 },
-    { name: '挑战', value: 12 },
+  const channelData = [
+    { name: '手淘搜索', value: 38 }, { name: '直通车', value: 25 },
+    { name: '手淘推荐', value: 18 }, { name: '购物车', value: 12 },
+    { name: '其他', value: 7 },
+  ];
+
+  const abVariants = [
+    {
+      name: '旧版详情页', color: 'bg-[#888894]', winner: false,
+      metrics: [
+        { label: '婴儿湿巾转化率', value: '3.0%' }, { label: '儿童水杯转化率', value: '3.5%' },
+        { label: '辅食碗转化率', value: '2.8%' }, { label: '平均跳出率', value: '62%' },
+      ],
+    },
+    {
+      name: '新版详情页', color: 'bg-[#10b981]', winner: true,
+      metrics: [
+        { label: '婴儿湿巾转化率', value: '3.8% (+27%)' }, { label: '儿童水杯转化率', value: '4.1% (+17%)' },
+        { label: '辅食碗转化率', value: '3.3% (+18%)' }, { label: '平均跳出率', value: '48% (-23%)' },
+      ],
+      lift: '结论：用「用户痛点→解决方案→产品参数」结构替换「卖点罗列」，3 款商品转化率平均提升 18%，p < 0.05。',
+    },
   ];
 
   const metrics = [
-    { label: '总播放量', value: '820K', trend: 234, progress: 82 },
-    { label: '互动率', value: '8.7%', trend: 45, progress: 87 },
-    { label: '完播率', value: '62%', trend: 18, progress: 62 },
-    { label: '涨粉数', value: '12.6K', trend: 156, progress: 76 },
-  ];
-
-  const timeline = [
-    { date: 'Month 1', title: '账号定位 + 内容矩阵搭建', desc: '确定「科技生活」垂类，产出 15 条测试内容', dotColor: 'bg-[#ec4899]', dotBg: 'bg-[#ec4899]/20' },
-    { date: 'Month 2-3', title: '爆款内容复制', desc: '基于数据筛选高互动内容公式，批量复制', metric: '↑ 3条10万+播放视频', dotColor: 'bg-[#f59e0b]', dotBg: 'bg-[#f59e0b]/20' },
-    { date: 'Month 4', title: '算法优化期', desc: '调整发布时间、标签策略、封面设计', metric: '↑ 推荐流量占比从 23% → 58%', dotColor: 'bg-[#3b82f6]', dotBg: 'bg-[#3b82f6]/20' },
-    { date: 'Month 5', title: '商业变现启动', desc: '品牌合作 3 单，单条报价 ¥2,000-5,000', dotColor: 'bg-[#10b981]', dotBg: 'bg-[#10b981]/20' },
-    { date: 'Month 6', title: '矩阵化运营', desc: '复制成功模式至 2 个新账号', metric: '✓ 矩阵总粉丝 2.8 万', dotColor: 'bg-[#8b5cf6]', dotBg: 'bg-[#8b5cf6]/20' },
+    { label: '大促销售额提升', value: '+28%', trend: 28, progress: 100 },
+    { label: '详情页转化率', value: '3.8%', trend: 18, progress: 76 },
+    { label: '店铺粉丝增长', value: '+20%', trend: 20, progress: 100 },
+    { label: '直通车 ROI', value: '1:3.8', trend: 81, progress: 76 },
   ];
 
   return (
     <Section id="case-2" label="02" accent="#ec4899"
-      title="短视频账号运营"
-      subtitle="6 个月从 0 到 8.2 万粉丝，累计播放 82 万，跑通内容-增长-变现闭环">
-
+      title="波妞电商大促运营"
+      subtitle="波妞网络科技 · 国内电商运营实习生 · 2025.03-2025.06">
       <div className="grid lg:grid-cols-2 gap-6 mb-6">
         <StaggerChildren>
-          <StaggerItem><GrowthCurve data={growth} title="粉丝增长曲线" subtitle="月度累计粉丝 · 6个月增长 68x" accent="#ec4899" /></StaggerItem>
+          <StaggerItem><GrowthCurve data={salesData} title="店铺周销售额趋势" subtitle="预热 → 爆发 → 返场 · 5 周" accent="#ec4899" /></StaggerItem>
         </StaggerChildren>
         <StaggerChildren>
-          <StaggerItem><BIDashboard metrics={metrics} title="关键指标看板" /></StaggerItem>
+          <StaggerItem><BIDashboard metrics={metrics} title="核心指标看板" /></StaggerItem>
         </StaggerChildren>
       </div>
-
       <div className="grid lg:grid-cols-2 gap-6 mb-6">
-        <ScrollReveal><BarChartViz data={content} title="内容类型分布" subtitle="按播放量加权 (%)" accent="#ec4899" /></ScrollReveal>
-        <ScrollReveal><Timeline events={timeline} title="运营里程碑" /></ScrollReveal>
+        <ScrollReveal><BarChartViz data={channelData} title="流量渠道占比 (%)" subtitle="生意参谋导出 · 数据透视表汇总" accent="#ec4899" /></ScrollReveal>
+        <ScrollReveal><ABTest variants={abVariants} title="详情页 A/B 对比" /></ScrollReveal>
       </div>
-
       <ScrollReveal>
         <div className="bg-[#141416] rounded-2xl border border-[#2a2a2e] p-6">
-          <h4 className="text-sm font-semibold text-[#f5f5f7] mb-4">爆款内容公式</h4>
-          <div className="grid md:grid-cols-4 gap-3">
+          <h4 className="text-sm font-semibold text-[#f5f5f7] mb-4">执行细节</h4>
+          <div className="space-y-3">
             {[
-              { label: '黄金 3 秒', value: '开头悬念 / 反常识提问', rate: '+35%' },
-              { label: '节奏控制', value: '每 3-5s 信息/画面变化', rate: '+28%' },
-              { label: '互动引导', value: '评论区投票 / 话题讨论', rate: '+42%' },
-              { label: '发布时间', value: '工作日 18:30-19:30', rate: '+22%' },
-            ].map((h, i) => (
-              <div key={i} className="bg-[#0a0a0b] rounded-xl p-4 border border-[#2a2a2e] text-center">
-                <p className="text-xs text-[#888894] mb-2">{h.label}</p>
-                <p className="text-xs text-[#f5f5f7] font-medium mb-2">{h.value}</p>
-                <span className="text-xs font-bold text-[#10b981] font-mono">{h.rate}</span>
+              { title: '为什么转移直通车预算', desc: '直通车占 40% 预算仅带来 25% 流量、转化率 2.1%。暂停低转化词，预算集中到品牌词+品类词，ROI 从 1:2.1 → 1:3.8。' },
+              { title: '为什么详情页改「痛点结构」', desc: '生意参谋显示跳出率最高位置是首屏卖点罗列区。旧版「我们有什么」→ 新版「你的问题怎么解决」。婴儿湿巾关联「红屁股」痛点后转化率+27%。' },
+              { title: '为什么活动周期拉长到 10 天', desc: '分析历史订单，母婴类决策周期 5-7 天（比标品长）。预热 7 天蓄水 + 爆发 3 天收割，收藏加购转化率比 1 天秒杀高 41%。' },
+            ].map((insight, i) => (
+              <div key={i} className="flex gap-3 bg-[#0a0a0b] rounded-xl p-4 border border-[#2a2a2e]">
+                <div className="w-1 rounded-full shrink-0" style={{ background: ['#3b82f6', '#ec4899', '#8b5cf6'][i] }} />
+                <div>
+                  <p className="text-sm font-medium text-[#f5f5f7]">{insight.title}</p>
+                  <p className="text-xs text-[#888894] mt-1 leading-relaxed">{insight.desc}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -183,71 +169,48 @@ function VideoOps() {
   );
 }
 
-/* ── Case 3: 用户行为数据分析 ── */
-function UserAnalytics() {
-  const cohort = [
-    { name: 'Week 1', value: 100 },
-    { name: 'Week 2', value: 72 },
-    { name: 'Week 3', value: 56 },
-    { name: 'Week 4', value: 44 },
-    { name: 'Week 5', value: 36 },
-    { name: 'Week 6', value: 31 },
+/* ── Case 3: 迎新嘉年华活动策划 ── */
+function CampusEvent() {
+  const attendData = [
+    { name: '往年', value: 570 }, { name: '目标', value: 600 }, { name: '实际', value: 800 },
+  ];
+
+  const timeline = [
+    { date: '前 4 周', title: '方案策划 + 社团招募', desc: '设计「嘉年华」主题 + 4 个互动区 + 集章机制。挨个联系社团，降低参展门槛（统一提供物料），报名从 6 → 18 个', dotColor: 'bg-[#8b5cf6]', dotBg: 'bg-[#8b5cf6]/20' },
+    { date: '前 2 周', title: '多渠道宣传推广', desc: '公众号推文 3 篇（倒计时 7/3/1 天）+ 班级群海报 + 食堂线下摆摊', metric: '↑ 累计阅读 2,400+ · 覆盖 2,000+ 人', dotColor: 'bg-[#3b82f6]', dotBg: 'bg-[#3b82f6]/20' },
+    { date: '活动当天', title: '现场执行 + 应急预案', desc: '活动前 2 天预报有雨，启动 B 方案（室外→室内），20 分钟完成切换。集章护照引导动线，人均停留 45min', metric: '↑ 人均停留 15min → 45min', dotColor: 'bg-[#ec4899]', dotBg: 'bg-[#ec4899]/20' },
+    { date: '后 1 周', title: '满意度调研 + SOP 沉淀', desc: '问卷星回收 200+ 份反馈，好评率 95%。输出活动执行 SOP 文档供下一届复用', metric: '✓ 好评率 95% · 预算节余 ¥400', dotColor: 'bg-[#10b981]', dotBg: 'bg-[#10b981]/20' },
   ];
 
   const metrics = [
-    { label: 'DAU', value: '3,847', trend: 28, progress: 77 },
-    { label: '留存率 D7', value: '52%', trend: 12, progress: 52 },
-    { label: '人均时长', value: '18min', trend: 8, progress: 60 },
-    { label: '分享率', value: '23%', trend: 34, progress: 46 },
-  ];
-
-  const personas = [
-    {
-      name: '效率追求者', desc: '大三/大四 · 准备求职', avatar: '💼',
-      bg: 'bg-[#3b82f6]/10', percent: '38%',
-      tags: ['高频使用', '付费意愿强', '功能导向', '留存率 65%'],
-    },
-    {
-      name: '社交探索者', desc: '大一/大二 · 拓展人脉', avatar: '🎉',
-      bg: 'bg-[#ec4899]/10', percent: '32%',
-      tags: ['分享活跃', 'UGC 贡献者', '裂变节点', '留存率 48%'],
-    },
-    {
-      name: '内容消费者', desc: '全年级 · 信息获取', avatar: '📱',
-      bg: 'bg-[#8b5cf6]/10', percent: '22%',
-      tags: ['浏览为主', '低互动', '价格敏感', '留存率 35%'],
-    },
-    {
-      name: '沉默大多数', desc: '被动参与 · 低频', avatar: '👤',
-      bg: 'bg-[#10b981]/10', percent: '8%',
-      tags: ['被动触达', '需激活', '流失风险', '留存率 15%'],
-    },
+    { label: '参与人数', value: '800+', trend: 40, progress: 100 },
+    { label: '社团参与', value: '18 个', trend: 80, progress: 100 },
+    { label: '满意度', value: '95%', trend: null, progress: 95 },
+    { label: '预算控制', value: '¥2,600', trend: null, progress: 87 },
   ];
 
   return (
     <Section id="case-3" label="03" accent="#8b5cf6"
-      title="用户行为数据分析"
-      subtitle="基于真实行为数据构建用户画像与留存模型，驱动精细化运营决策">
-
+      title="迎新嘉年华活动策划"
+      subtitle="校学生会 · 活动策划负责人 · 2025.03-2025.06">
       <div className="grid lg:grid-cols-2 gap-6 mb-6">
         <StaggerChildren>
-          <StaggerItem><GrowthCurve data={cohort} title="用户留存曲线" subtitle="周留存率 · 6 周追踪" accent="#8b5cf6" /></StaggerItem>
+          <StaggerItem><BarChartViz data={attendData} title="参与人数对比" subtitle="往年 570 → 今年 800+" accent="#8b5cf6" /></StaggerItem>
         </StaggerChildren>
         <StaggerChildren>
-          <StaggerItem><UserPersona personas={personas} title="用户画像分层" /></StaggerItem>
+          <StaggerItem><BIDashboard metrics={metrics} title="活动效果看板" /></StaggerItem>
         </StaggerChildren>
       </div>
-
       <div className="grid lg:grid-cols-2 gap-6 mb-6">
-        <ScrollReveal><BIDashboard metrics={metrics} title="核心数据仪表盘" /></ScrollReveal>
+        <ScrollReveal><Timeline events={timeline} title="活动执行时间线" /></ScrollReveal>
         <ScrollReveal>
           <div className="bg-[#141416] rounded-2xl border border-[#2a2a2e] p-6">
-            <h4 className="text-sm font-semibold text-[#f5f5f7] mb-4">关键洞察</h4>
+            <h4 className="text-sm font-semibold text-[#f5f5f7] mb-4">活动设计思路</h4>
             <div className="space-y-4">
               {[
-                { title: '留存拐点', desc: '用户在 Day 3 后留存骤降 40% → 在第 3 天触发个性化推送，D7 留存提升至 52%', color: '#3b82f6' },
-                { title: '内容消费偏好', desc: '短视频内容完播率 62%，图文仅 35% → 调整内容策略，视频占比从 30% 提升至 65%', color: '#8b5cf6' },
-                { title: '分享动机分析', desc: '「实用价值」是分享的首要动机 (48%) → 在内容中强化干货属性，分享率提升 34%', color: '#ec4899' },
+                { title: '集章机制', desc: '入场领打卡护照，完成 4 区互动盖 4 章参与抽奖。本质是电商「满减凑单」逻辑迁移到线下活动。人均停留从 15min → 45min。', color: '#8b5cf6' },
+                { title: '降低参展门槛', desc: '社团嫌准备成本高不愿报名。统一提供摊位物料，社团只出人+展示内容。报名 1 周内从 6 个涨到 18 个。典型的「降低参与成本=提高参与率」。', color: '#3b82f6' },
+                { title: '传播点设计', desc: '抽奖墙前设拍照打卡点，主题背景板+学校 logo。自然引导拍照发朋友圈，二次传播覆盖量无法精确统计但远超付费推广。', color: '#ec4899' },
               ].map((insight, i) => (
                 <div key={i} className="flex gap-3">
                   <div className="w-1 rounded-full shrink-0" style={{ background: insight.color }} />
@@ -265,86 +228,55 @@ function UserAnalytics() {
   );
 }
 
-/* ── Case 4: AI 提效项目 ── */
-function AITools() {
-  const abVariants = [
-    {
-      name: '对照组 (人工)',
-      color: 'bg-[#888894]',
-      winner: false,
-      metrics: [
-        { label: '内容产出 / 周', value: '12 篇' },
-        { label: '平均耗时 / 篇', value: '4.2h' },
-        { label: '互动率均值', value: '3.8%' },
-        { label: '人工成本 / 月', value: '¥12,000' },
-      ],
-    },
-    {
-      name: '实验组 (AI 辅助)',
-      color: 'bg-[#3b82f6]',
-      winner: true,
-      metrics: [
-        { label: '内容产出 / 周', value: '45 篇' },
-        { label: '平均耗时 / 篇', value: '1.1h' },
-        { label: '互动率均值', value: '5.2%' },
-        { label: 'AI 成本 / 月', value: '¥800' },
-      ],
-      lift: '核心结论: AI 辅助将内容产出效率提升 275%，互动率提升 37%，成本降低 93%。p < 0.01 统计显著。',
-    },
+/* ── Case 4: 学生会公众号用户增长 ── */
+function WechatGrowth() {
+  const fanData = [
+    { name: 'Month 1', value: 1200 }, { name: 'Month 2', value: 1450 },
+    { name: 'Month 3', value: 1700 }, { name: 'Month 4', value: 2000 },
   ];
 
-  const beforeData = [
-    { label: '周内容产出', value: '12 篇' },
-    { label: '数据分析周期', value: '3 天' },
-    { label: '周报制作', value: '4 小时' },
-    { label: '用户回复延迟', value: '4h+' },
-  ];
-  const afterData = [
-    { label: '周内容产出', value: '45 篇' },
-    { label: '数据分析周期', value: '2 小时' },
-    { label: '周报制作', value: '15 分钟' },
-    { label: '用户回复延迟', value: '<30min' },
+  const readData = [
+    { name: '通知', value: 420 }, { name: '回顾', value: 380 },
+    { name: '攻略', value: 620 }, { name: '专访', value: 510 },
+    { name: '其他', value: 180 },
   ];
 
-  const timeline = [
-    { date: 'Week 1-2', title: '需求梳理 + 工具选型', desc: '评估 ChatGPT / Claude / Copilot，确定 AI 辅助流程', dotColor: 'bg-[#8b5cf6]', dotBg: 'bg-[#8b5cf6]/20' },
-    { date: 'Week 3', title: 'Prompt 工程化', desc: '建立 20+ 标准化 prompt 模板库', metric: '✓ 覆盖 5 大运营场景', dotColor: 'bg-[#3b82f6]', dotBg: 'bg-[#3b82f6]/20' },
-    { date: 'Week 4-5', title: '数据自动化', desc: 'Python 脚本 + AI 实现数据采集→清洗→可视化自动化', metric: '↑ 效率提升 360%', dotColor: 'bg-[#10b981]', dotBg: 'bg-[#10b981]/20' },
-    { date: 'Week 6-8', title: '全流程 AI 化', desc: '内容策划→生产→分发→复盘全链路 AI 辅助', metric: '✓ ROI 提升 15x', dotColor: 'bg-[#ec4899]', dotBg: 'bg-[#ec4899]/20' },
+  const metrics = [
+    { label: '粉丝增长', value: '+800', trend: 67, progress: 80 },
+    { label: '推文阅读提升', value: '+50%', trend: 50, progress: 75 },
+    { label: '互动率', value: '3.5%', trend: null, progress: 70 },
+    { label: '单篇最高', value: '1,800+', trend: null, progress: 90 },
   ];
 
   return (
     <Section id="case-4" label="04" accent="#10b981"
-      title="AI 提效项目"
-      subtitle="引入 AI 工具链重构运营工作流，效率提升 275%，月成本降低 93%">
-
+      title="学生会公众号用户增长"
+      subtitle="校学生会新媒体部 · 新媒体干事 · 2025.01-2025.05">
       <div className="grid lg:grid-cols-2 gap-6 mb-6">
         <StaggerChildren>
-          <StaggerItem><CostCompare before={beforeData} after={afterData} title="优化前后对比" /></StaggerItem>
+          <StaggerItem><GrowthCurve data={fanData} title="粉丝增长曲线" subtitle="月度累计 · 1,200 → 2,000+" accent="#10b981" /></StaggerItem>
         </StaggerChildren>
         <StaggerChildren>
-          <StaggerItem><ABTest variants={abVariants} title="A/B 对照实验" /></StaggerItem>
+          <StaggerItem><BIDashboard metrics={metrics} title="核心指标看板" /></StaggerItem>
         </StaggerChildren>
       </div>
-
       <div className="grid lg:grid-cols-2 gap-6 mb-6">
-        <ScrollReveal><Timeline events={timeline} title="项目实施路线" /></ScrollReveal>
+        <ScrollReveal><BarChartViz data={readData} title="内容类型平均阅读量" subtitle="历史 24 篇推文分析" accent="#10b981" /></ScrollReveal>
         <ScrollReveal>
           <div className="bg-[#141416] rounded-2xl border border-[#2a2a2e] p-6">
-            <h4 className="text-sm font-semibold text-[#f5f5f7] mb-4">AI 工具栈</h4>
+            <h4 className="text-sm font-semibold text-[#f5f5f7] mb-4">增长策略拆解</h4>
             <div className="space-y-3">
               {[
-                { name: 'ChatGPT / Claude', use: '内容创作 · 数据分析 · 用户洞察', impact: '效率 +300%' },
-                { name: 'Python 自动化脚本', use: '数据采集 · 报表生成 · 异常监控', impact: '效率 +360%' },
-                { name: '飞书多维表格 + AI', use: '项目管理 · 自动化周报 · 智能提醒', impact: '协作效率 +200%' },
-                { name: 'AI 图片 / 视频工具', use: '封面设计 · 视频剪辑 · 素材生成', impact: '产出速度 +400%' },
-              ].map((tool, i) => (
-                <div key={i} className="bg-[#0a0a0b] rounded-xl p-4 border border-[#2a2a2e]">
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="text-sm font-semibold text-[#f5f5f7]">{tool.name}</span>
-                    <span className="text-[10px] font-bold text-[#10b981] font-mono">{tool.impact}</span>
+                { title: '内容供给调整', desc: '历史分析发现攻略类阅读量 620 vs 通知类 420，但 70% 内容是通知。调整比例：80% 内容 + 20% 通知，阅读量+50%。' },
+                { title: '标题 A/B 测试', desc: '《校园歌手大赛落幕》280 阅读 vs《这 3 个瞬间让全场安静了》560 阅读。结论：数字+悬念+画面感 → CTR ×2。' },
+                { title: 'AARRR 增长体系', desc: '获取：线下活动扫码关注；激活：新关注回复「本周热门+回复关键词领资料」；留存：固定栏目「周三攻略」；推荐：在看+分享引导。' },
+              ].map((insight, i) => (
+                <div key={i} className="flex gap-3 bg-[#0a0a0b] rounded-xl p-4 border border-[#2a2a2e]">
+                  <div className="w-1 rounded-full shrink-0" style={{ background: ['#10b981', '#3b82f6', '#8b5cf6'][i] }} />
+                  <div>
+                    <p className="text-sm font-medium text-[#f5f5f7]">{insight.title}</p>
+                    <p className="text-xs text-[#888894] mt-1 leading-relaxed">{insight.desc}</p>
                   </div>
-                  <p className="text-xs text-[#888894]">{tool.use}</p>
                 </div>
               ))}
             </div>
@@ -355,87 +287,52 @@ function AITools() {
   );
 }
 
-/* ── Case 5: 小红书内容运营 ── */
-function RedBookContent() {
-  const growth = [
-    { name: '1月', value: 340 }, { name: '2月', value: 1200 }, { name: '3月', value: 2800 },
-    { name: '4月', value: 5600 }, { name: '5月', value: 9400 }, { name: '6月', value: 14300 },
+/* ── Case 5: 运营方法论 ── */
+function Methodology() {
+  const beforeData = [
+    { label: '数据报表输出', value: '滞后 5 天' }, { label: '物料到位率', value: '68%' },
+    { label: '详情页跳出率', value: '62%' }, { label: '直通车 ROI', value: '1:2.1' },
   ];
-
-  const funnel = [
-    { name: '笔记曝光', value: 380000, rate: '100%' },
-    { name: '阅读', value: 142000, rate: '37.4%' },
-    { name: '互动 (赞藏评)', value: 32000, rate: '22.5%' },
-    { name: '主页访问', value: 18000, rate: '56.3%' },
-    { name: '关注转化', value: 14300, rate: '79.4%' },
-  ];
-
-  const metrics = [
-    { label: '粉丝总量', value: '14.3K', trend: 210, progress: 72 },
-    { label: '笔记互动率', value: '8.4%', trend: 32, progress: 84 },
-    { label: '搜索占比', value: '47%', trend: 18, progress: 47 },
-    { label: '商单收入', value: '¥18K', trend: 85, progress: 60 },
-  ];
-
-  const contentMix = [
-    { name: '干货教程', value: 35 },
-    { name: '好物测评', value: 25 },
-    { name: '生活方式', value: 20 },
-    { name: '经验分享', value: 15 },
-    { name: '热点话题', value: 5 },
+  const afterData = [
+    { label: '数据报表输出', value: '2 天内' }, { label: '物料到位率', value: '92%' },
+    { label: '详情页跳出率', value: '48%' }, { label: '直通车 ROI', value: '1:3.8' },
   ];
 
   return (
     <Section id="case-5" label="05" accent="#f59e0b"
-      title="小红书内容运营"
-      subtitle="6 个月积累 1.4 万精准粉丝，单月商单收入 ¥5K+，沉淀爆款内容方法论">
-
+      title="运营方法论与工具链"
+      subtitle="跨项目沉淀 · 数据分析 SOP · 活动策划 SOP · 用户增长模型">
       <div className="grid lg:grid-cols-2 gap-6 mb-6">
-        <StaggerChildren>
-          <StaggerItem><GrowthCurve data={growth} title="粉丝增长曲线" subtitle="月度累计粉丝 · 6 个月" accent="#f59e0b" /></StaggerItem>
-        </StaggerChildren>
-        <StaggerChildren>
-          <StaggerItem><FunnelChart data={funnel} title="内容转化漏斗" subtitle="曝光 → 关注 全链路" /></StaggerItem>
-        </StaggerChildren>
+        <ScrollReveal><CostCompare before={beforeData} after={afterData} title="跨项目优化汇总" /></ScrollReveal>
+        <ScrollReveal>
+          <div className="bg-[#141416] rounded-2xl border border-[#2a2a2e] p-6">
+            <h4 className="text-sm font-semibold text-[#f5f5f7] mb-4">我的数据分析 SOP</h4>
+            <div className="space-y-2">
+              {['Step 1: 明确问题 → 我想知道什么？', 'Step 2: 数据收集 → 从后台导出原始数据', 'Step 3: 数据清洗 → 统一口径、去重、补缺', 'Step 4: 分析归因 → 透视表拆解、找异常/趋势', 'Step 5: 输出建议 → 1 页纸结论 + 可执行动作'].map((step, i) => (
+                <div key={i} className="flex items-center gap-3 bg-[#0a0a0b] rounded-lg p-3 border border-[#2a2a2e]">
+                  <span className="w-6 h-6 rounded-full bg-[#f59e0b]/20 text-[#f59e0b] flex items-center justify-center text-[10px] font-bold">{i + 1}</span>
+                  <span className="text-xs text-[#f5f5f7]">{step}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
-
-      <div className="grid lg:grid-cols-2 gap-6 mb-6">
-        <ScrollReveal><BIDashboard metrics={metrics} title="账号数据看板" /></ScrollReveal>
-        <ScrollReveal><BarChartViz data={contentMix} title="内容类型占比" subtitle="按互动量加权 (%)" accent="#f59e0b" /></ScrollReveal>
-      </div>
-
       <ScrollReveal>
         <div className="bg-[#141416] rounded-2xl border border-[#2a2a2e] p-6">
-          <h4 className="text-sm font-semibold text-[#f5f5f7] mb-4">爆款笔记方法论</h4>
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="space-y-3">
-              {[
-                { title: '标题公式', desc: '数字 + 痛点 + 解决方案。例: 「3 个方法让简历通过率翻倍｜亲测有效」', metric: '+65% CTR' },
-                { title: '封面设计', desc: '高对比度 + 文字标题 + 人物/结果图。测试 12 版封面，选出最佳模板。', metric: '+43% 点击' },
-              ].map((h, i) => (
-                <div key={i} className="bg-[#0a0a0b] rounded-xl p-4 border border-[#2a2a2e]">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-semibold text-[#f5f5f7]">{h.title}</span>
-                    <span className="text-[10px] font-bold text-[#10b981] font-mono">{h.metric}</span>
-                  </div>
-                  <p className="text-xs text-[#888894] leading-relaxed">{h.desc}</p>
-                </div>
-              ))}
-            </div>
-            <div className="space-y-3">
-              {[
-                { title: '发布时间', desc: '工作日 12:00-13:00、18:00-19:00、周末 10:00-11:00。基于 200+ 篇笔记数据回归分析。', metric: '+28% 曝光' },
-                { title: 'SEO 优化', desc: '标题+正文+标签关键词布局。搜索流量占比从 12% → 47%。', metric: '+292% 搜索' },
-              ].map((h, i) => (
-                <div key={i} className="bg-[#0a0a0b] rounded-xl p-4 border border-[#2a2a2e]">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-semibold text-[#f5f5f7]">{h.title}</span>
-                    <span className="text-[10px] font-bold text-[#10b981] font-mono">{h.metric}</span>
-                  </div>
-                  <p className="text-xs text-[#888894] leading-relaxed">{h.desc}</p>
-                </div>
-              ))}
-            </div>
+          <h4 className="text-sm font-semibold text-[#f5f5f7] mb-4">核心能力矩阵</h4>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3">
+            {[
+              { title: '数据分析', items: 'Excel 数据透视表\nVLOOKUP\nIF/SUMIFS 函数\n生意参谋' },
+              { title: '活动策划', items: '全案方案设计\n资源统筹协调\n现场执行管控\n数据复盘闭环' },
+              { title: '内容运营', items: '公众号/秀米排版\nCanva 海报设计\n剪映短视频\n选题矩阵规划' },
+              { title: '电商运营', items: '天猫/京东后台\n流量渠道分析\n详情页优化\n竞品调研' },
+            ].map((c, i) => (
+              <div key={i} className="bg-[#0a0a0b] rounded-xl p-5 border border-[#2a2a2e]">
+                <h5 className="text-sm font-semibold text-[#f5f5f7] mb-3">{c.title}</h5>
+                <p className="text-xs text-[#888894] leading-relaxed whitespace-pre-line">{c.items}</p>
+              </div>
+            ))}
           </div>
         </div>
       </ScrollReveal>
@@ -443,15 +340,15 @@ function RedBookContent() {
   );
 }
 
-/* ── Export all ── */
+/* ── Export ── */
 export default function CaseStudies() {
   return (
     <div id="cases">
-      <CampusGrowth />
-      <VideoOps />
-      <UserAnalytics />
-      <AITools />
-      <RedBookContent />
+      <MarsSales />
+      <BoniuEcommerce />
+      <CampusEvent />
+      <WechatGrowth />
+      <Methodology />
     </div>
   );
 }

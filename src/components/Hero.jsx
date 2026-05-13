@@ -16,7 +16,7 @@ export default function Hero() {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3b82f6]/10 border border-[#3b82f6]/30 mb-8">
             <span className="w-2 h-2 rounded-full bg-[#3b82f6] animate-pulse" />
-            <span className="text-xs text-[#3b82f6] font-medium">Open to opportunities</span>
+            <span className="text-xs text-[#3b82f6] font-medium">运营实习生 · 商业/活动运营方向</span>
           </div>
         </motion.div>
 
@@ -26,9 +26,9 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.95] mb-6">
-            <span className="text-[#f5f5f7]">产品运营</span>
+            <span className="text-[#f5f5f7]">贾明森</span>
             <br />
-            <span className="gradient-text">驱动增长</span>
+            <span className="gradient-text">运营实习生</span>
           </h1>
         </motion.div>
 
@@ -38,9 +38,9 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <p className="text-lg md:text-xl text-[#888894] max-w-2xl mb-12 leading-relaxed">
-            上海建桥学院 · 计算机科学与技术<br />
-            用数据驱动决策，用产品思维做运营。<br />
-            擅长将复杂数据转化为可执行的增长策略。
+            上海建桥学院 · 计算机科学与技术 · 2028届<br />
+            擅长 Excel 数据分析、活动策划执行、内容运营。<br />
+            两段互联网+快消实习，用数据驱动运营决策。
           </p>
         </motion.div>
 
@@ -50,10 +50,10 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-16">
-            <StatCard value="5+" label="项目经验" trend={null} icon="🚀" />
-            <StatCard value="156%" label="平均增长率" trend={156} icon="📈" />
-            <StatCard value="50万+" label="累计触达用户" trend={null} icon="👥" />
-            <StatCard value="60%" label="效率提升" trend={60} icon="⚡" />
+            <StatCard value="2段" label="实习经历" trend={null} icon="💼" />
+            <StatCard value="110%" label="销售目标达成" trend={10} icon="📈" />
+            <StatCard value="2,800+" label="累计粉丝增长" trend={null} icon="👥" />
+            <StatCard value="28%" label="电商销售额提升" trend={28} icon="⚡" />
           </div>
         </motion.div>
 

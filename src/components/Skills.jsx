@@ -4,25 +4,25 @@ const skillCategories = [
   {
     title: '数据分析',
     skills: [
-      { name: 'Excel', level: 90, color: '#10b981', icon: '📊' },
-      { name: 'Python', level: 75, color: '#3b82f6', icon: '🐍' },
-      { name: 'Power BI', level: 80, color: '#f59e0b', icon: '📈' },
+      { name: 'Excel 数据透视表', level: 90, color: '#10b981', icon: '📊' },
+      { name: 'VLOOKUP', level: 88, color: '#3b82f6', icon: '🔍' },
+      { name: 'Excel IF/SUMIFS', level: 85, color: '#f59e0b', icon: '📈' },
     ],
   },
   {
-    title: '运营工具',
+    title: '内容与设计',
     skills: [
-      { name: '飞书', level: 85, color: '#3b82f6', icon: '🕊️' },
-      { name: 'Canva', level: 88, color: '#8b5cf6', icon: '🎨' },
-      { name: '剪映', level: 82, color: '#ec4899', icon: '✂️' },
+      { name: '秀米排版', level: 85, color: '#8b5cf6', icon: '📝' },
+      { name: 'Canva 海报设计', level: 88, color: '#ec4899', icon: '🎨' },
+      { name: '剪映短视频', level: 82, color: '#f59e0b', icon: '✂️' },
     ],
   },
   {
-    title: '创意设计',
+    title: '平台运营',
     skills: [
-      { name: 'Photoshop', level: 70, color: '#3b82f6', icon: '🖼️' },
-      { name: '内容策划', level: 85, color: '#f59e0b', icon: '✍️' },
-      { name: '增长策略', level: 80, color: '#10b981', icon: '🚀' },
+      { name: '公众号后台', level: 85, color: '#3b82f6', icon: '📱' },
+      { name: '电商后台（天猫/京东）', level: 80, color: '#f59e0b', icon: '🛒' },
+      { name: '活动策划执行', level: 88, color: '#10b981', icon: '🎯' },
     ],
   },
 ];
@@ -54,7 +54,7 @@ export default function Skills() {
       <div className="max-w-6xl mx-auto px-6">
         <ScrollReveal>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-3">技能矩阵</h2>
-          <p className="text-[#888894] text-lg mb-12">产品运营核心能力图谱</p>
+          <p className="text-[#888894] text-lg mb-12">运营核心能力图谱</p>
         </ScrollReveal>
 
         <div className="grid md:grid-cols-3 gap-8 mb-16">
@@ -78,9 +78,9 @@ export default function Skills() {
             <h3 className="text-sm font-semibold text-[#f5f5f7] mb-6 text-center">工具生态</h3>
             <div className="flex flex-wrap justify-center gap-3">
               {[
-                'Excel', 'Python', 'Power BI', '飞书', 'Canva',
-                '剪映', 'Photoshop', 'Figma', 'Notion', 'SQL',
-                'ChatGPT', 'Claude', 'Midjourney',
+                'Excel', '数据透视表', 'VLOOKUP', '秀米', 'Canva',
+                '剪映', 'Photoshop', '公众号后台', '天猫/京东后台',
+                '生意参谋', '飞书', '企业微信', '问卷星',
               ].map((tool) => (
                 <span key={tool}
                   className="px-4 py-2 bg-[#0a0a0b] border border-[#2a2a2e] rounded-xl text-xs font-medium text-[#888894] hover:text-[#f5f5f7] hover:border-[#3b82f6]/40 transition-all duration-300 cursor-default">

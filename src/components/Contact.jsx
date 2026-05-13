@@ -11,9 +11,9 @@ export default function Contact() {
         <ScrollReveal>
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-              让我们一起<span className="gradient-text">做点什么</span>
+              联系<span className="gradient-text">我</span>
             </h2>
-            <p className="text-[#888894] text-lg">期待与你交流产品运营、数据增长相关话题</p>
+            <p className="text-[#888894] text-lg">期待与你交流商业运营、活动运营、电商运营相关话题</p>
           </div>
         </ScrollReveal>
 
@@ -26,14 +26,14 @@ export default function Contact() {
                     <span className="text-2xl">📧</span>
                     <div>
                       <p className="text-xs text-[#888894]">邮箱</p>
-                      <p className="text-sm font-medium text-[#f5f5f7]">jianq@example.com</p>
+                      <p className="text-sm font-medium text-[#f5f5f7]">3457885146@qq.com</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4 p-4 bg-[#0a0a0b] rounded-xl border border-[#2a2a2e]">
                     <span className="text-2xl">📱</span>
                     <div>
-                      <p className="text-xs text-[#888894]">微信</p>
-                      <p className="text-sm font-medium text-[#f5f5f7]">jianq_ops</p>
+                      <p className="text-xs text-[#888894]">电话</p>
+                      <p className="text-sm font-medium text-[#f5f5f7]">130-5203-9362</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4 p-4 bg-[#0a0a0b] rounded-xl border border-[#2a2a2e]">
